@@ -52,7 +52,7 @@
 :root{--premium-ink:#092238;--premium-navy:#0d2b45;--premium-green:#2ecc71}
 .site-header{box-shadow:0 7px 28px rgba(4,24,41,.07)}
 .hero{position:relative;isolation:isolate;overflow:hidden;background:#092238}
-.hero::before{content:"";position:absolute;inset:0;z-index:-2;background:url("images/intervention-cuisine.webp") center 46%/cover no-repeat;opacity:.47}
+.hero::before{content:"";position:absolute;inset:0;z-index:-2;background:url("images/bioguard3d-hero-premium.webp") center 46%/cover no-repeat;opacity:.47}
 .hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(5,23,40,.98) 0%,rgba(8,33,53,.92) 38%,rgba(8,33,53,.67) 72%,rgba(8,33,53,.77) 100%)}
 .hero .eyebrow{display:inline-flex;align-items:center;gap:10px;letter-spacing:.13em;text-transform:uppercase}
 .hero .eyebrow::before{content:"";width:25px;height:2px;background:#2ecc71}
@@ -73,3 +73,7 @@
 .faq details[open]{border-color:#b9dfca;box-shadow:0 9px 25px rgba(10,37,59,.055)}
 @media(max-width:780px){.hero::before{background-position:65% center;opacity:.30}.hero::after{background:linear-gradient(180deg,rgba(5,23,40,.94),rgba(8,33,53,.88))}.hero h1{letter-spacing:-.025em}.hero-panel{backdrop-filter:none}}
 @media(prefers-reduced-motion:reduce){.v2-sector-link img{transition:none}.v2-sector-link:hover img{transform:none}}
+
+/* Keep the premium hero subject visible on wide screens and readable on mobile */
+@media(min-width:900px){.hero::before{background-position:60% center;opacity:.82}.hero::after{background:linear-gradient(90deg,rgba(5,23,40,.98) 0%,rgba(8,33,53,.90) 34%,rgba(8,33,53,.22) 67%,rgba(8,33,53,.12) 100%)}}
+@media(max-width:899px){.hero::before{background-position:67% center;opacity:.40}.hero::after{background:linear-gradient(90deg,rgba(5,23,40,.94),rgba(8,33,53,.72))}}
