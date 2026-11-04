@@ -24,6 +24,28 @@ try{
     check(name+' WhatsApp link',await page.locator('a[href*="wa.me/212675311317"]').count()>0);
     check(name+' logo visible',await page.locator('img[src="logo.webp"]').first().evaluate(el=>el.complete&&el.naturalWidth>0));
     check(name+' illustration visible',await page.locator('img[src="illustration-protection.svg"]').first().evaluate(el=>el.complete&&el.naturalWidth>0));
+    if(name==='mobile'){
+      const menu=page.locator('.menu-btn');
+      check('mobile menu control present',await menu.count()===1);
+      if(await menu.count()){
+        await menu.click();
+        check('mobile menu opens accessibly',await menu.getAttribute('aria-expanded')==='true');
+        await page.keyboard.press('Escape');
+        check('mobile menu closes on Escape',await menu.getAttribute('aria-expanded')==='false');
+      }
+    }
+    const form=page.locator('#quick');
+    check(name+' contact form available',await form.count()===1);
+    if(await form.count()){
+      await page.locator('#q-pest').selectOption({label:'Rats et souris'});
+      await page.locator('#q-city').selectOption({label:'Rabat'});
+      const url=await page.evaluate(()=>{
+        const p=document.querySelector('#q-pest').value;
+        const c=document.querySelector('#q-city').value;
+        return [...document.querySelectorAll('a[data-wa]')].some(a=>a.href.includes('wa.me/212675311317'))&&p==='Rats et souris'&&c==='Rabat';
+      });
+      check(name+' contact choices selectable',url);
+    }
     await page.close();
   }
   for(const file of ['deratisation','desinsectisation','punaises-de-lit','desinfection','depigeonnage','restaurants-cafes','hotels-riads','boulangeries-patisseries','industries-agroalimentaires']){
