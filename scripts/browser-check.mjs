@@ -45,6 +45,14 @@ try{
         return [...document.querySelectorAll('a[data-wa]')].some(a=>a.href.includes('wa.me/212675311317'))&&p==='Rats et souris'&&c==='Rabat';
       });
       check(name+' contact choices selectable',url);
+      let submittedUrl='';
+      await page.route('https://wa.me/**',route=>{submittedUrl=route.request().url();return route.abort()});
+      await page.locator('#quick button[type="submit"]').click();
+      await page.waitForTimeout(350);
+      check(name+' form submits WhatsApp request with chosen pest and city',
+        submittedUrl.includes('wa.me/212675311317') &&
+        decodeURIComponent(submittedUrl).includes('Rats et souris') &&
+        decodeURIComponent(submittedUrl).includes('Rabat'));
     }
     await page.close();
   }
