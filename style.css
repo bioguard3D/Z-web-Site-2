@@ -77,3 +77,22 @@
 /* Keep the premium hero subject visible on wide screens and readable on mobile */
 @media(min-width:900px){.hero::before{background-position:60% center;opacity:.82}.hero::after{background:linear-gradient(90deg,rgba(5,23,40,.98) 0%,rgba(8,33,53,.90) 34%,rgba(8,33,53,.22) 67%,rgba(8,33,53,.12) 100%)}}
 @media(max-width:899px){.hero::before{background-position:67% center;opacity:.40}.hero::after{background:linear-gradient(90deg,rgba(5,23,40,.94),rgba(8,33,53,.72))}}
+
+/* Photo-led service tiles. Original local photos are fallback until new WebP assets are uploaded. */
+.services-photo{gap:18px}
+.services-photo .service-photo-card{position:relative;display:flex;align-items:flex-end;isolation:isolate;min-height:245px;padding:22px 58px 22px 22px;overflow:hidden;border-radius:18px;text-decoration:none;color:#fff;background-color:#0d2b45;background-size:cover;background-position:center;box-shadow:0 12px 30px rgba(7,32,51,.12);border:1px solid rgba(255,255,255,.12);transition:transform .2s ease,box-shadow .2s ease}
+.services-photo .service-photo-card::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(5,23,40,.03) 5%,rgba(5,23,40,.12) 38%,rgba(5,23,40,.96) 100%)}
+.services-photo .service-photo-card:hover{transform:translateY(-4px);box-shadow:0 20px 42px rgba(7,32,51,.2)}
+.services-photo .service-photo-card:focus-visible{outline:3px solid #2ecc71;outline-offset:3px}
+.service-photo-content{display:flex;flex-direction:column;gap:7px;max-width:100%}
+.service-photo-content strong{font-size:1.26rem;font-weight:800;line-height:1.2;color:#fff}
+.service-photo-content span{font-size:.91rem;line-height:1.5;color:#f0f7f8}
+.service-photo-arrow{position:absolute;right:19px;bottom:22px;display:grid;place-items:center;width:34px;height:34px;border:1px solid #2ecc71;border-radius:50%;font-size:1.3rem;color:#fff}
+.service-deratisation{background-image:url("images/deratisation.webp"),url("images/boulangeries.webp")}
+.service-desinsectisation{background-image:url("images/desinsectisation.webp"),url("images/restaurants.webp")}
+.service-punaises-de-lit{background-image:url("images/punaises-de-lit.webp"),url("images/hotels.webp")}
+.service-desinfection{background-image:url("images/desinfection.webp"),url("images/intervention-cuisine.webp")}
+.service-depigeonnage{background-image:url("images/depigeonnage.webp"),url("images/industries-agroalimentaires.webp")}
+.service-professionnels{background-image:url("images/professionnels.webp"),url("images/restaurants.webp")}
+@media(max-width:760px){.services-photo .service-photo-card{min-height:210px;padding:18px 55px 18px 18px}.service-photo-content strong{font-size:1.14rem}.service-photo-arrow{bottom:18px;right:16px}}
+@media(prefers-reduced-motion:reduce){.services-photo .service-photo-card{transition:none}.services-photo .service-photo-card:hover{transform:none}}
