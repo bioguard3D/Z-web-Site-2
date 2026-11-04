@@ -24,6 +24,8 @@ try{
     check(name+' WhatsApp link',await page.locator('a[href*="wa.me/212675311317"]').count()>0);
     check(name+' logo visible',await page.locator('img[src="logo.webp"]').first().evaluate(el=>el.complete&&el.naturalWidth>0));
     check(name+' illustration visible',await page.locator('img[src="illustration-protection.svg"]').first().evaluate(el=>el.complete&&el.naturalWidth>0));
+    check(name+' brand logo has no white background wrapper',await page.locator('.brand').first().evaluate(el=>getComputedStyle(el).backgroundColor==='rgba(0, 0, 0, 0)'));
+    check(name+' brand logo image loads',await page.locator('.brand img').first().evaluate(el=>el.complete&&el.naturalWidth>0));
     if(name==='mobile'){
       const menu=page.locator('.menu-btn');
       check('mobile menu control present',await menu.count()===1);
