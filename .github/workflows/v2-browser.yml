@@ -8,8 +8,11 @@ permissions:
 jobs:
   browser:
     runs-on: ubuntu-latest
-    timeout-minutes: 12
+    container: ubuntu:24.04
+    timeout-minutes: 15
     steps:
+      - name: Install container prerequisites
+        run: apt-get update && apt-get install -y git curl ca-certificates python3
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
