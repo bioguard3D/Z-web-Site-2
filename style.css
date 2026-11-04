@@ -47,3 +47,29 @@
 .problem-cta p{margin:6px 0 0;color:#405c65;line-height:1.55}
 .problem-cta .btn{flex-shrink:0;text-align:center}
 @media(max-width:700px){.problem-cta{flex-direction:column;align-items:stretch;padding:20px}.problem-cta .btn{width:100%}}
+
+/* V3 premium conversion-focused visual system */
+:root{--premium-ink:#092238;--premium-navy:#0d2b45;--premium-green:#2ecc71}
+.site-header{box-shadow:0 7px 28px rgba(4,24,41,.07)}
+.hero{position:relative;isolation:isolate;overflow:hidden;background:#092238}
+.hero::before{content:"";position:absolute;inset:0;z-index:-2;background:url("images/intervention-cuisine.webp") center 46%/cover no-repeat;opacity:.47}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(5,23,40,.98) 0%,rgba(8,33,53,.92) 38%,rgba(8,33,53,.67) 72%,rgba(8,33,53,.77) 100%)}
+.hero .eyebrow{display:inline-flex;align-items:center;gap:10px;letter-spacing:.13em;text-transform:uppercase}
+.hero .eyebrow::before{content:"";width:25px;height:2px;background:#2ecc71}
+.hero h1{font-weight:800;letter-spacing:-.035em;line-height:1.09;text-wrap:balance;text-shadow:0 4px 24px rgba(0,0,0,.14)}
+.hero .lead{line-height:1.75;color:#e0ebf0}
+.hero-panel{border:1px solid rgba(255,255,255,.18);box-shadow:0 28px 80px rgba(0,0,0,.35);backdrop-filter:blur(6px)}
+.hero .btn-primary,.problem-cta .btn-primary{box-shadow:0 10px 24px rgba(15,139,78,.22)}
+.hero .actions{gap:12px}
+.section .head h2{letter-spacing:-.025em;text-wrap:balance}
+.grid.services .card{border-radius:18px;overflow:hidden;position:relative;border:1px solid #e1e9eb;box-shadow:0 10px 30px rgba(10,37,59,.045)}
+.grid.services .card::before{content:"";position:absolute;inset:0 0 auto;height:3px;background:linear-gradient(90deg,#0d2b45,#2ecc71)}
+.grid.services .card h3{color:#0d2b45}
+.v2-sector-link{border-radius:18px!important;box-shadow:0 12px 32px rgba(10,37,59,.08)}
+.v2-sector-link img{transition:transform .45s ease}
+.v2-sector-link:hover img{transform:scale(1.045)}
+.v2-showcase-image img{box-shadow:0 24px 65px rgba(10,37,59,.16)}
+.faq details{transition:border-color .2s ease,box-shadow .2s ease}
+.faq details[open]{border-color:#b9dfca;box-shadow:0 9px 25px rgba(10,37,59,.055)}
+@media(max-width:780px){.hero::before{background-position:65% center;opacity:.30}.hero::after{background:linear-gradient(180deg,rgba(5,23,40,.94),rgba(8,33,53,.88))}.hero h1{letter-spacing:-.025em}.hero-panel{backdrop-filter:none}}
+@media(prefers-reduced-motion:reduce){.v2-sector-link img{transition:none}.v2-sector-link:hover img{transform:none}}
