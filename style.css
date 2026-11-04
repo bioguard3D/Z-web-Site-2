@@ -92,7 +92,7 @@
 .service-desinsectisation{background-image:url("images/desinsectisation.webp"),url("images/restaurants.webp")}
 .service-punaises-de-lit{background-image:url("images/punaises-de-lit.webp"),url("images/hotels.webp")}
 .service-desinfection{background-image:url("images/desinfection.webp"),url("images/intervention-cuisine.webp")}
-.service-depigeonnage{background-image:url("images/depigeonnage.webp"),url("images/industries-agroalimentaires.webp")}
+.service-depigeonnage{background-image:url("images/depigeonnage-photo-site.webp")}
 .service-professionnels{background-image:url("images/professionnels.webp"),url("images/restaurants.webp")}
 @media(max-width:760px){.services-photo .service-photo-card{min-height:210px;padding:18px 55px 18px 18px}.service-photo-content strong{font-size:1.14rem}.service-photo-arrow{bottom:18px;right:16px}}
 @media(prefers-reduced-motion:reduce){.services-photo .service-photo-card{transition:none}.services-photo .service-photo-card:hover{transform:none}}
