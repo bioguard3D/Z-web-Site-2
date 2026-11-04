@@ -23,6 +23,7 @@ try{
     check(name+' phone link',await page.locator('a[href="tel:+212675311317"]').count()>0);
     check(name+' WhatsApp link',await page.locator('a[href*="wa.me/212675311317"]').count()>0);
     check(name+' logo visible',await page.locator('.brand img').first().evaluate(el=>el.complete&&el.naturalWidth>0));
+    check(name+' premium hero image loaded',await page.evaluate(async()=>{const r=await fetch('/images/bioguard3d-hero-premium.webp');return r.ok&&r.headers.get('content-type')?.includes('image')}));
     check(name+' favicon configured',await page.locator('link[rel="icon"][href^="favicon-mark.svg"]').count()===1);
     check(name+' professional photo visible',await page.locator('img[src="images/intervention-cuisine.webp"]').first().evaluate(el=>el.complete&&el.naturalWidth>0));
     check(name+' brand logo has no white background wrapper',await page.locator('.brand').first().evaluate(el=>getComputedStyle(el).backgroundColor==='rgba(0, 0, 0, 0)'));
