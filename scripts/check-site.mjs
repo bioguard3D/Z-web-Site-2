@@ -11,6 +11,7 @@ const htmlFiles=readdirSync(root).filter(x=>x.endsWith('.html'));
 const errors=[],warnings=[];
 const read=p=>readFileSync(join(root,p),'utf8');
 const validIds=new Map();
+const localFile=p=>{const clean=p.replace(/^\/+/, '');return !clean?'index.html':existsSync(join(root,clean))?clean:clean+'.html'};
 for(const file of htmlFiles){
   const s=read(file);
   const ids=[...s.matchAll(/\bid=["']([^"']+)["']/g)].map(m=>m[1]);
@@ -24,7 +25,7 @@ for(const file of htmlFiles){
     const link=m[1];
     if(/^(https?:|mailto:|tel:|data:|javascript:|\/\/)/i.test(link))continue;
     const [pathname,fragment]=link.split('#');
-    const dest=pathname?decodeURIComponent(pathname.split('?')[0]):file;
+    const dest=pathname?localFile(decodeURIComponent(pathname.split('?')[0])):file;
     if(dest && !existsSync(join(root,dest)))errors.push(file+': missing asset '+dest);
     else if(fragment && dest.endsWith('.html') && !validIds.has(dest)){} // checked in second pass
   }
@@ -34,13 +35,13 @@ for(const file of htmlFiles){
  for(const m of s.matchAll(/\bhref=["']([^"']+)["']/g)){
   const href=m[1];if(!href.includes('#')||/^(https?:|mailto:|tel:)/.test(href))continue;
   const [pathname,frag]=href.split('#');if(!frag)continue;
-  const target=pathname||file;
+  const target=pathname?localFile(pathname):file;
   if(validIds.has(target)&&!validIds.get(target).has(frag))errors.push(file+': missing anchor '+href);
  }
 }
 const sitemap=read('sitemap.xml');
 for(const file of htmlFiles.filter(x=>!['404.html','mentions-legales.html','politique-de-confidentialite.html'].includes(x))){
- if(file!=='index.html'&&!sitemap.includes('https://bioguard3d.com/'+file))errors.push('sitemap missing '+file);
+ if(file!=='index.html'&&!sitemap.includes('https://bioguard3d.com/'+file.replace(/\.html$/,'')))errors.push('sitemap missing '+file);
 }
 if(!existsSync(join(root,'logo.webp')))errors.push('Original brand logo missing');
 if(!read('index.html').includes('tel:+212675311317'))errors.push('Homepage missing click-to-call');
