@@ -96,3 +96,34 @@
 .service-professionnels{background-image:url("images/professionnels.webp"),url("images/restaurants.webp")}
 @media(max-width:760px){.services-photo .service-photo-card{min-height:210px;padding:18px 55px 18px 18px}.service-photo-content strong{font-size:1.14rem}.service-photo-arrow{bottom:18px;right:16px}}
 @media(prefers-reduced-motion:reduce){.services-photo .service-photo-card{transition:none}.services-photo .service-photo-card:hover{transform:none}}
+
+/* V3.2 — editorial hierarchy, accessible controls and responsive spacing */
+:root{--r:24px;--soft:#f3f7f6}
+html{scroll-padding-top:96px}
+.hero-grid>* ,.split>* ,.inner-hero-grid>*{min-width:0}
+.hero{padding:clamp(56px,7vw,104px) 0}
+.hero-grid{gap:clamp(28px,5vw,72px);grid-template-columns:1.15fr .85fr}
+.hero h1{font-size:clamp(40px,4.8vw,66px);max-width:15ch}
+.hero-panel{border:0;border-radius:26px;box-shadow:none;backdrop-filter:none}
+.quick{padding:clamp(22px,3vw,36px);border-radius:26px;box-shadow:0 24px 70px rgba(0,0,0,.25)}
+.quick select{min-height:48px;background:#f8faf9;color:var(--ink);border-color:#cbd9d5}
+.quick .btn-wa,.dock-wa,.head-wa{background:#087b46;color:#fff}
+.quick h2{font-size:clamp(22px,2.4vw,28px);letter-spacing:-.035em;color:var(--navy)}
+.section{padding:clamp(54px,7vw,96px) 0}
+.section .head{margin-bottom:32px}
+.section .head h2{font-weight:800}
+.section .head .eyebrow{color:#087b46}
+.services-photo .service-photo-card{min-height:280px;border-radius:22px}
+.services-photo .service-photo-card::before{background:linear-gradient(180deg,transparent 10%,rgba(5,23,40,.25) 35%,rgba(5,23,40,.97) 100%)}
+#secteurs .v2-link-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+#secteurs .v2-sector-link{height:100%}
+#secteurs .v2-sector-label{flex:1;justify-content:space-between}
+.pillars article{background:#fff;border:1px solid var(--line);border-top:3px solid #168953;border-radius:18px;padding:24px}
+.steps li{background:#f5f8f7;border:1px solid var(--line);border-radius:18px;padding:20px}
+.aud{border-radius:26px}
+.faq summary{min-height:56px}
+.btn:focus-visible,a:focus-visible,select:focus-visible{outline:3px solid #168953;outline-offset:4px}
+.hero a:focus-visible,.final a:focus-visible{outline-color:#a5f3c5}
+@media(max-width:980px){.hero-grid{grid-template-columns:1fr;gap:32px}#secteurs .v2-link-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hero h1{max-width:18ch}}
+@media(max-width:640px){html{scroll-padding-top:84px}.hero h1{font-size:clamp(34px,9vw,46px)}.hero .actions{margin-top:22px}.hero .lead{font-size:16px}.hero-note{align-items:flex-start}.hero-note .ico{flex-shrink:0}.quick{padding:22px}.services-photo .service-photo-card{min-height:220px}#secteurs .v2-link-grid{grid-template-columns:1fr}.brand span{display:grid}.brand strong{font-size:12px}.brand small{font-size:8px}.bar{gap:10px}.brand{gap:6px}.brand img{width:32px;height:38px}.menu-btn{padding:4px}.nav{top:68px}.contact-dock{bottom:max(10px,env(safe-area-inset-bottom))}.footer{padding-bottom:38px}}
+@media(max-width:360px){.brand small{display:none}.brand strong{font-size:11px}.head-call{font-size:12px;padding:8px}.bar{gap:6px}}
